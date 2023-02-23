@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Djino",
+        "desc": "Baddez drink ever",
+        "src": "djino",
+        "ingredients": [
+            "herbs",
+            "sugar",
+            "water",
+            "bread of life"
+        ],
+        "user-id": "001",
+        "id": 1677151747476
+    },
+    {
+        "name": "Malta",
+        "desc": "New drink",
+        "src": "origin",
+        "ingredients": [
+            "hejknr",
+            "jsdn"
+        ],
+        "user-id": "002",
+        "id": 1677159947902
+    }
+]
