@@ -3,52 +3,52 @@ const { writeJson, readRequestData, getIdFromUrl } = require("./utils");
 
 function getAllUsers(req, res) {
   const users = db.getUsers();
-  writeJson(res, users);
+  res.json(users);
 }
 
 function getOneUser(req, res) {
-  const id = getIdFromUrl(req.url);
+  const id = +req.params.id
   const users = db.getUsers();
   const user = users.find((u) => u.id === id);
   if (user) {
-    writeJson(res, user);
+    res.json(user);
   } else {
-    writeJson(res, { status: "NOT_FOUND" }, 404);
+    res.status(404).json({ status: "NOT_FOUND" });
   }
 }
 async function updateOneUser(req, res) {
-  const id = getIdFromUrl(req.url);
+  const id = +req.params.id;
   const { firstName, lastName, email } = await readRequestData(req);
   if (!email || !firstName || !lastName) {
-    return writeJson(res, { error: "User data missing" }, 403);
+    return res.status(403).json({ error: "User data missing" });
   }
   const users = db.getUsers();
   const index = users.findIndex((user) => user.id === id);
   if (index > -1) {
     users.splice(index, 1, { email, firstName, lastName, id });
     db.saveUsers(users);
-    writeJson(res, users[index]);
+    res.json(users[index]);
   } else {
-    writeJson(res, { status: "NOT_FOUND" }, 404);
+    res.status(404).json({ status: "NOT_FOUND" })
   }
 }
 
 function deleteOneUser(req, res) {
-  const id = getIdFromUrl(req.url);
+  const id = +req.params.id;
   const users = db.getUsers();
   const index = users.findIndex((user) => user.id === id);
   if (index > -1) {
     users.splice(index, 1);
     db.saveUsers(users);
   }
-  writeJson(res, { status: "success" });
+  res.json({ status: "success" });
 }
 
-async function patchOneUser(req, res) {
+function patchOneUser(req, res) {
   const id = getIdFromUrl(req.url);
-  const data = await readRequestData(req);
+  const data = req.body;
   if (!data) {
-    return writeJson(res, { error: "User data missing" }, 403);
+    res.status(403).json({ error: "User data missing" })
   }
   const users = db.getUsers();
   const index = users.findIndex((user) => user.id === id);
@@ -61,15 +61,15 @@ async function patchOneUser(req, res) {
   }
 }
 
-async function createUser(req, res) {
-  const data = await readRequestData(req);
+function createUser(req, res) {
+  const data = req.body;
   if (!data) {
-    return writeJson(res, { error: "User data missing" }, 403);
+    return res.status(403).json({ error: "User data missing" });
   }
   const newUser = { ...data, id: Date.now() };
   const users = db.getUsers();
   db.saveUsers([...users, newUser]);
-  writeJson(res, newUser);
+  res.json(newUser);
 }
 
 module.exports = {

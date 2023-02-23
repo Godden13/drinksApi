@@ -17,10 +17,21 @@
         "desc": "New drink",
         "src": "origin",
         "ingredients": [
-            "hejknr",
-            "jsdn"
+            "WATER",
+            "HIGH FRUCTOSE CORN SYRUP",
+            "CORN SYRUP",
+            "PALE MALT",
+            "CARAMEL MALT",
+            "CARAMEL COLOR",
+            "CALCIUM SULFATE",
+            "PHOSPHORIC ACID",
+            "SALT AND HOPS"
         ],
         "user-id": "002",
-        "id": 1677159947902
+        "id": 1677164525174
+    },
+    {
+        "src": "https://cdn.shopify.com/s/files/1/0378/3527/6423/products/Malta-Guinness-1200x1232_862x885.jpg?v=1589452639",
+        "id": 1677164766415
     }
 ]
