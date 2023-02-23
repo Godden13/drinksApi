@@ -18,7 +18,7 @@ function getOneUser(req, res) {
 }
 async function updateOneUser(req, res) {
   const id = +req.params.id;
-  const { firstName, lastName, email } = await readRequestData(req);
+  const { firstName, lastName, email } = req.body;
   if (!email || !firstName || !lastName) {
     return res.status(403).json({ error: "User data missing" });
   }
@@ -29,7 +29,7 @@ async function updateOneUser(req, res) {
     db.saveUsers(users);
     res.json(users[index]);
   } else {
-    res.status(404).json({ status: "NOT_FOUND" })
+    res.status(404).json({ status: "NOT_FOUND" }  )
   }
 }
 
