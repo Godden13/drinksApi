@@ -1,5 +1,4 @@
 const db = require("./db");
-const { writeJson, readRequestData, getIdFromUrl } = require("./utils");
 
 function getAllUsers(req, res) {
   const users = db.getUsers();
@@ -45,7 +44,7 @@ function deleteOneUser(req, res) {
 }
 
 function patchOneUser(req, res) {
-  const id = getIdFromUrl(req.url);
+  const id = req.params.id;
   const data = req.body;
   if (!data) {
     res.status(403).json({ error: "User data missing" })

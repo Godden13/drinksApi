@@ -1,54 +1,52 @@
 const drinkDb = require("./drinkDb");
 
-const { writeJson, readRequestData, getIdFromUrl } = require("./utils");
-
 function getAllDrinks(req, res) {
   const drinks = drinkDb.getDrinks();
-  writeJson(res, drinks);
+  res.json(drinks);
 }
 
 function getOneDrink(req, res) {
-  const id = getIdFromUrl(req.url);
+  const id = +req.params.id;
   const drinks = drinkDb.getDrinks();
   const drink = drinks.find((u) => u.id === id);
   if (drink) {
-    writeJson(res, drink);
+    res.json(drink);
   } else {
-    writeJson(res, { status: "NOT_FOUND" }, 404);
+    res.status(404).json({ status: "NOT_FOUND" });
   }
 }
 
 async function updateOneDrink(req, res) {
-  const id = getIdFromUrl(req.url);
-  const { name, desc, src, ingredients } = await readRequestData(req);
+  const id = +req.params.id;
+  const { name, desc, src, ingredients } = req.body;
   if (!name || !desc || !src || !ingredients) {
-    return writeJson(res, { error: "Drink data missing" }, 403);
+    res.status(403).json({ error: "Drink data missing" });
   }
   const drinks = drinkDb.getDrinks();
   const index = drinks.findIndex((drink) => drink.id === id);
   if (index > -1) {
     drinks.splice(index, 1, { name, desc, src, ingredients, id });
     drinkDb.saveDrinks(drinks);
-    writeJson(res, drinks[index]);
+    res.json(drinks[index]);
   } else {
-    writeJson(res, { status: "NOT_FOUND" }, 404);
+    res.status(404).json({ status: "NOT_FOUND" });
   }
 }
 
 function deleteOneDrink(req, res) {
-  const id = getIdFromUrl(req.url);
+  const id = +req.params.id;
   const drinks = drinkDb.getDrinks();
   const index = drinks.findIndex((drink) => drink.id === id);
   if (index > -1) {
     drinks.splice(index, 1);
     drinkDb.saveDrinks(drinks);
   }
-  writeJson(res, { status: "succes" });
+  res.json({ status: "success" });
 }
 
 async function patchOneDrink(req, res) {
-  const id = getIdFromUrl(req.url);
-  const data = await readRequestData(req);
+  const id = +req.params.id;
+  const data = req.body;
   if (!data) {
     return writeJson(res, { error: "Drink data is missing" }, 403);
   }
@@ -58,21 +56,21 @@ async function patchOneDrink(req, res) {
   if (index > -1) {
     drinks.splice(index, 1, { ...drinks[index], ...data, id });
     drinkDb.saveDrinks(drinks);
-    writeJson(res, drinks[index]);
+    res.json(drinks[index]);
   } else {
-    writeJson(res, { status: "NOT_FOUND" }, 404);
+    res.status(404).json({ status: "NOT_FOUND" });
   }
 }
 
 async function createDrink(req, res) {
-  const data = await readRequestData(req);
+  const data = req.body;
   if (!data) {
     return writeJson(res, { error: "drink data missing" }, 403);
   }
   const newDrink = { ...data, id: Date.now() };
   const drinks = drinkDb.getDrinks();
   drinkDb.saveDrinks([...drinks, newDrink]);
-  writeJson(res, newDrink);
+  res.json(newDrink);
 }
 
 module.exports = {

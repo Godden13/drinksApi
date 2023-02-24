@@ -1,37 +1,101 @@
 [
     {
-        "name": "Djino",
-        "desc": "Baddez drink ever",
-        "src": "djino",
+        "name": "Moscato Lemonade Cocktail",
+        "desc": "If you’re looking for a refreshing delicious cocktail, you must try this moscato lemonade drink! The colors are beautiful and your guests will love it!",
+        "src": "https://myheavenlyrecipes.com/wp-content/uploads/2022/05/moscato-lemonade-drink-recipe-1.jpg",
         "ingredients": [
-            "herbs",
+            "Moscato",
+            "Pink Lemonade",
+            "Fresh Raspberries",
+            "Lemons",
+            "Ice"
+        ],
+        "id": 1677164525174,
+        "user-id": "002"
+    },
+    {
+        "name": "Bavaria",
+        "desc": "Best drink for Recovering alcoholics",
+        "src": "https://swinkelsfamilybrewers.com/content/dam/bcorporate/images/our-portfolio/carousel/Bavaria_apple_malt_drink.jpg",
+        "ingredients": [
+            "Natural mineral water",
             "sugar",
-            "water",
-            "bread of life"
+            "barley malt",
+            "0.1% natural apple aroma",
+            "citric acid: citric acid",
+            "Allergens: Contains gluten (barley malt)"
         ],
-        "user-id": "001",
-        "id": 1677151747476
+        "user-id": "003",
+        "id": 1677196156386
     },
     {
-        "name": "Malta",
-        "desc": "New drink",
-        "src": "origin",
+        "name": "Sunset on the beach",
+        "desc": "Can’t go on vacation?  I love to make mixed drinks with malibu rum as it gives me the Caribbean vibe. This sunset cocktail tastes like sweet peaches with coconuts, pineapple and oranges.",
+        "src": "https://myheavenlyrecipes.com/wp-content/uploads/2021/03/malibu-sunset-cocktail-4-699x1024.png",
         "ingredients": [
-            "WATER",
-            "HIGH FRUCTOSE CORN SYRUP",
-            "CORN SYRUP",
-            "PALE MALT",
-            "CARAMEL MALT",
-            "CARAMEL COLOR",
-            "CALCIUM SULFATE",
-            "PHOSPHORIC ACID",
-            "SALT AND HOPS"
+            "Vodka",
+            "Malibu coconut rum",
+            "Peach schnapps",
+            "Grenadine",
+            "Orange juice",
+            "Pineapple juice",
+            "Ice",
+            "Pineapple and orange slices",
+            "Maraschino cherries",
+            "Umbrella straws",
+            "1 ounce shot glass or jigger",
+            "Tulip glasses"
         ],
-        "user-id": "002",
-        "id": 1677164525174
+        "user-id": "004",
+        "id": 1677197086863
     },
     {
-        "src": "https://cdn.shopify.com/s/files/1/0378/3527/6423/products/Malta-Guinness-1200x1232_862x885.jpg?v=1589452639",
-        "id": 1677164766415
+        "name": "Layered Mermaid Cocktail",
+        "desc": "Make this fun girly cocktail for summer time…a mermaid cocktail! The colors are so pretty and will sure to “wow” your friends!",
+        "src": "https://myheavenlyrecipes.com/wp-content/uploads/2021/03/mermaid-cocktail-recipe-1.png",
+        "ingredients": [
+            "½ cups ice",
+            "¼ cup torani coconut syrup",
+            "¼ cup torani vanilla syrup",
+            "1 drop lime food coloring",
+            "1 cup ICE lemonade sparkling water",
+            "1 drop aqua food coloring",
+            "¼ cup vodka",
+            "½ drop neon purple food coloring",
+            "1 16 oz glass",
+            "Fresh sliced pineapple",
+            "Maraschino cherries",
+            "1 drink layering tool"
+        ],
+        "user-id": "005",
+        "id": 1677197900266
+    },
+    {
+        "name": "Blue Paradise",
+        "desc": "The Blue Paradise is an aquamarine beauty you need to behold before you imbibe. This gorgeous drink mixes up vodka, triple sec, Blue Curaçao, pineapple juice, and orange juice. Garnish with an orange wedge and cherry for some extra fruity fun.",
+        "src": "https://tipsybartender.com/wp-content/uploads/2018/01/Blue-Paradise-2.jpg?fit=crop&ar=1:1",
+        "ingredients": [
+            "1/2 oz. (15ml) Vodka",
+            "1/2 oz. (15ml) Triple Sec",
+            "1 1/2 oz. (45ml) Blue curaçao",
+            "1 oz. (60ml) Pineapple Juice",
+            "2 oz. (90ml) Orange Juice",
+            "Garnish: Orange Wedge/Cherry"
+        ],
+        "user-id": "006",
+        "id": 1677198398064
+    },
+    {
+        "name": "Tequila Sunrise",
+        "desc": "After talking about our sunset on the beach it's only right we talk about something for our morning people. Make a delicious easy tequila drink that looks like a total sunrise! The yellow, orange, and red colors make it gorgeous to serve to your guests.",
+        "src": "https://myheavenlyrecipes.com/wp-content/uploads/2022/02/tequila-sunrise-cocktail-recipe.jpg",
+        "ingredients": [
+            "4 Oz Orange Juice",
+            "2 Oz Tequila",
+            "¼ Oz Grenadine",
+            "Ice"
+        ],
+        "user-id": "007",
+        "id": 1677198667691
     }
 ]

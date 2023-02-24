@@ -36,6 +36,7 @@ app.use(function (req, res, next) {
   }
 })
 
+// Users requests
 app.get("/users", getAllUsers);
 app.post("/users", createUser);
 app.get("/users/:id", getOneUser);
@@ -43,46 +44,15 @@ app.put("/users/:id", updateOneUser);
 app.patch("/users/:id", patchOneUser);
 app.delete("/users/:id", deleteOneUser);
 
+//Drinks Requests
+
+app.get("/drinks", getAllDrinks);
+app.post("/drinks", createDrink);
+app.get("/drinks/:id", getOneDrink);
+app.put("/drinks/:id", updateOneDrink);
+app.patch("/drinks/:id", patchOneDrink);
+app.delete("/drinks/:id", deleteOneDrink);
+
 app.listen(8080, function() {
   console.log("running on port 8080")
-})
-
-
-// http
-//   .createServer(function (req, res) {
-//     handleUsersRequest(req, res);
-//   })
-  
-// console.log("Listening on port 8080");
-
-function throw404(res) {
-  writeJson(res, { status: "Resource not found" }, 404);
-}
-
-function handleUsersRequest(req, res) {
-  const { pathname } = parse(req.url);
-  const { method } = req;
-
-  if (pathname === "/drinks") {
-    if (method === "GET") {
-      return getAllDrinks(req, res);
-    } else if (method === "POST") {
-      return createDrink(req, res);
-    }
-  } else if (pathname.startsWith('/drinks') && pathname.split("/").length === 3) {
-    switch (method.toLowerCase()) {
-      case "get":
-        return getOneDrink(req, res);
-      case "put":
-        return updateOneDrink(req, res);
-      case "patch":
-        return patchOneDrink(req, res);
-      case "delete":
-        return deleteOneDrink(req, res);
-      default:
-        break;
-    }
-  }
-
-  throw404(res);
-}
+});
