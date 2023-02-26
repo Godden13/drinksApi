@@ -16,7 +16,7 @@ function getOneDrink(req, res) {
   }
 }
 
-async function updateOneDrink(req, res) {
+function updateOneDrink(req, res) {
   const id = +req.params.id;
   const { name, desc, src, ingredients } = req.body;
   if (!name || !desc || !src || !ingredients) {
@@ -44,7 +44,7 @@ function deleteOneDrink(req, res) {
   res.json({ status: "success" });
 }
 
-async function patchOneDrink(req, res) {
+function patchOneDrink(req, res) {
   const id = +req.params.id;
   const data = req.body;
   if (!data) {
@@ -62,7 +62,7 @@ async function patchOneDrink(req, res) {
   }
 }
 
-async function createDrink(req, res) {
+function createDrink(req, res) {
   const data = req.body;
   if (!data) {
     return writeJson(res, { error: "drink data missing" }, 403);

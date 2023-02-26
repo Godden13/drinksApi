@@ -1,4 +1,4 @@
-const db = require("./db");
+const db = require("../user/db");
 
 function getAllUsers(req, res) {
   const users = db.getUsers();
@@ -54,9 +54,9 @@ function patchOneUser(req, res) {
   if (index > -1) {
     users.splice(index, 1, { ...users[index], ...data, id });
     db.saveUsers(users);
-    writeJson(res, users[index]);
+    res.json(users[index]);
   } else {
-    writeJson(res, { status: "NOT_FOUND" }, 404);
+    res.status(404).json({ status: "NOT_FOUND" })
   }
 }
 
