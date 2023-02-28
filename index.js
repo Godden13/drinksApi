@@ -8,6 +8,7 @@ app.use(cors());
 
 const userRouter = require("./routes/userRoutes");
 const drinksRouter = require("./routes/drinksRoutes");
+const categoryRouter = require("./routes/categoryRoutes")
 
 const API_KEYS = ["1", "2", "3", "4"];
 
@@ -21,7 +22,9 @@ app.use(function (req, res, next) {
   }
 })
 
+app.use("/category", categoryRouter)
 app.use("/users", userRouter);
 app.use("/drinks", drinksRouter);
+
 
 app.listen(3000);

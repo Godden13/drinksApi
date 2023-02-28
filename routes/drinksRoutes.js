@@ -10,8 +10,7 @@ const {
   deleteOneDrink,
 } = require("../drinks/drinks");
 
-router.get("/", getAllDrinks);
-router.post("/", createDrink);
+router.route("/").get(getAllDrinks).post(createDrink);
 
 router
   .route("/:id")
@@ -19,6 +18,5 @@ router
   .put(updateOneDrink)
   .patch(patchOneDrink)
   .delete(deleteOneDrink);
-
 
 module.exports = router;

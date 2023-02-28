@@ -1,6 +1,7 @@
 [
-  {
-    "name": "Cocktail",
-    "catId": "1"
-  }
+    {
+        "name": "cocktaiL",
+        "catId": 1,
+        "id": 1
+    }
 ]

@@ -9,7 +9,6 @@ function getCategories(){
     return JSON.parse(data);
   } catch (e){
     console.log(e);
-    return [];
   }
 }
 
@@ -22,6 +21,6 @@ function saveCategories(categories = []) {
   }
 }
 
-const db = { saveCategories, getCategories }
 
-module.exports = db;
+
+module.exports = { saveCategories, getCategories };
